@@ -1,0 +1,277 @@
+/* বেসিক সেটআপ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    /* ইমেজের মতো পিংক-পার্পল-ব্লু গ্রেডিয়েন্ট */
+    background: linear-gradient(120deg, #ffcbf2 0%, #a29bfe 40%, #74b9ff 100%);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ব্যাকগ্রাউন্ডের ঢেউ খেলানো ডিজাইন (Abstract Shapes) */
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.shape-1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(69, 104, 220, 0.4);
+    bottom: -100px;
+    left: -150px;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 105, 180, 0.3);
+    top: -100px;
+    right: -100px;
+}
+
+/* ইমেজের মতো গাঢ় নীল ঢেউ ডান দিকে */
+.wave-shape {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    clip-path: ellipse(80% 100% at 100% 50%);
+    z-index: 0;
+}
+
+/* নেভিগেশন বার */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    position: relative;
+    z-index: 10;
+}
+
+.menu-icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.logo-btn {
+    padding: 8px 25px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+/* মেইন কন্টেন্ট এরিয়া */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+    height: 80vh;
+    position: relative;
+    z-index: 5;
+}
+
+/* বাম পাশের টেক্সট */
+.text-section {
+    width: 50%;
+    color: white;
+}
+
+h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    max-width: 400px;
+}
+
+.read-more-btn {
+    padding: 12px 35px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.read-more-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* ডান পাশের গ্রাফিক্স (সূর্য ও মেঘ) */
+.graphic-section {
+    width: 50%;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* সূর্য তৈরি */
+.sun {
+    width: 120px;
+    height: 120px;
+    background: #ffce00;
+    border-radius: 50%;
+    position: absolute;
+    top: 60px;
+    right: 120px;
+    box-shadow: 0 0 40px rgba(255, 206, 0, 0.4);
+    z-index: 1;
+}
+
+/* সূর্যের রশ্মি (Rays) */
+.ray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 40px;
+    background: #ffce00;
+    border-radius: 4px;
+    transform-origin: bottom center;
+}
+
+/* রশ্মিগুলোকে ঘুরিয়ে দেওয়া */
+.r1 {
+    transform: translate(-50%, -150%) rotate(0deg);
+}
+
+.r2 {
+    transform: translate(-50%, -150%) rotate(45deg);
+}
+
+.r3 {
+    transform: translate(-50%, -150%) rotate(90deg);
+}
+
+.r4 {
+    transform: translate(-50%, -150%) rotate(135deg);
+}
+
+.r5 {
+    transform: translate(-50%, -150%) rotate(180deg);
+}
+
+.r6 {
+    transform: translate(-50%, -150%) rotate(225deg);
+}
+
+.r7 {
+    transform: translate(-50%, -150%) rotate(270deg);
+}
+
+.r8 {
+    transform: translate(-50%, -150%) rotate(315deg);
+}
+
+/* গ্লাসমরফিজম মেঘ (Cloud) */
+.cloud-glass {
+    width: 320px;
+    height: 180px;
+    /* কাঁচের মতো এফেক্ট */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px;
+    position: relative;
+    z-index: 2;
+    top: 50px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+/* মেঘের ওপরের ফোলা অংশ */
+.cloud-glass::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: inherit;
+    backdrop-filter: blur(15px);
+    border-radius: 50%;
+    top: -60px;
+    left: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* রেসপন্সিভ ডিজাইন (মোবাইলের জন্য) */
+@media (max-width: 768px) {
+    nav {
+        padding: 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+        padding: 20px;
+        height: auto;
+        text-align: center;
+    }
+
+    .text-section,
+    .graphic-section {
+        width: 100%;
+    }
+
+    .sun {
+        right: 80px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .read-more-btn {
+        margin-bottom: 50px;
+    }
+}
